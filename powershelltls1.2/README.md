@@ -18,6 +18,11 @@ Configura a biblioteca de segurança padrão do Windows para suportar explicitam
 *   **Client**: Habilita o TLS 1.2 para conexões de saída (quando o Windows atua como cliente).
 *   Define `Enabled = 1` e `DisabledByDefault = 0`.
 
+### 3. Auditoria e Segurança
+*   **Logs de Execução**: Gera um arquivo de log detalhado (`TLS_Config_Log_YYYYMMDD-HHmmss.txt`) no diretório do script para fins de auditoria.
+*   **Verificação de Permissões**: Valida automaticamente se o script está rodando como Administrador antes de prosseguir.
+*   **Tratamento de Erros**: Implementa verificações seguras (`try/catch`) ao criar ou modificar chaves de registro.
+
 ## ⚠️ Pré-requisitos
 
 *   **Privilégios de Administrador**: O script modifica chaves na `HKEY_LOCAL_MACHINE` (HKLM), portanto, o PowerShell deve ser executado como Administrador.
@@ -33,7 +38,7 @@ Configura a biblioteca de segurança padrão do Windows para suportar explicitam
     .\Powershelltls1.2.ps1
     ```
 
-4.  O script exibirá a mensagem: `TLS 1.2 has been enabled.`
+4.  O script exibirá uma mensagem de sucesso e indicará que o log foi gerado.
 
 ## 🔍 Chaves de Registro Modificadas
 
